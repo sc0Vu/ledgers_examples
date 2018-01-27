@@ -34,7 +34,7 @@ util.getAddress = function (path, cb) {
   }
   let addresses = [];
 
-  this.eth.getAddress_async("m/44'/60'/0'/0", false, true).then(function (address) {
+  this.eth.getAddress_async(path, false, true).then(function (address) {
     cb(null, address);
   }.bind(this)).catch(function (err) {
     cb(err, null);
