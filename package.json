@@ -1,0 +1,27 @@
+{
+  "name": "ledgers_examples",
+  "version": "1.0.0",
+  "description": "Nodejs ethereum examples with ledger s.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sc0Vu/ledgers_examples.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sc0Vu/ledgers_examples/issues"
+  },
+  "homepage": "https://github.com/sc0Vu/ledgers_examples#readme",
+  "dependencies": {
+    "ethereumjs-util": "^5.1.3",
+    "ledgerco": "^1.2.1",
+    "web3-eth": "^1.0.0-beta.28",
+    "yoethwallet": "^0.1.2"
+  },
+  "devDependencies": {}
+}
