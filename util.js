@@ -51,4 +51,16 @@ util.getAppConfig = function (cb) {
   }.bind(this));
 }
 
+// util.close = function (cb) {
+//   if (!this.isConnected) {
+//     cb(new Error('Ledger s isnot connected.'), null);
+//     return;
+//   }
+//   this.comm.close_async().then(function (close) {
+//     cb(null, close);
+//   }.bind(this)).catch(function (err) {
+//     cb(err, null);
+//   }.bind(this));
+// }
+
 module.exports = util;
