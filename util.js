@@ -32,10 +32,20 @@ util.getAddress = function (path, cb) {
     cb(new Error('Ledger s isnot connected.'), null);
     return;
   }
-  let addresses = [];
-
   this.eth.getAddress_async(path, false, true).then(function (address) {
     cb(null, address);
+  }.bind(this)).catch(function (err) {
+    cb(err, null);
+  }.bind(this));
+}
+
+util.getAppConfig = function (cb) {
+  if (!this.isConnected) {
+    cb(new Error('Ledger s isnot connected.'), null);
+    return;
+  }
+  this.eth.getAppConfiguration_async().then(function (config) {
+    cb(null, config);
   }.bind(this)).catch(function (err) {
     cb(err, null);
   }.bind(this));
