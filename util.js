@@ -63,4 +63,23 @@ util.getAppConfig = function (cb) {
 //   }.bind(this));
 // }
 
+util.signTransaction = function (path, txData, cb) {
+  if (!this.isConnected) {
+    cb(new Error('Ledger s isnot connected.'), null);
+    return;
+  }
+  tx = wallet.tx.valueTx(txData);
+  txHex = tx.serialize().toString('hex');
+
+  this.eth.signTransaction_async(path, txHex).then(function (signedTransaction) {
+    txData.v = '0x' + signedTransaction.v;
+    txData.r = '0x' + signedTransaction.r;
+    txData.s = '0x' + signedTransaction.s;
+
+    cb(null, wallet.tx.valueTx(txData));
+  }.bind(this)).catch(function (err) {
+    cb(err, null);
+  }.bind(this));
+}
+
 module.exports = util;
